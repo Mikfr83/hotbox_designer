@@ -43,8 +43,8 @@ def import_hotbox_link():
 
 def export_hotbox(hotbox):
     filenames = QtWidgets.QFileDialog.getSaveFileName(
-        None, caption='Export hotbox', directory=os.path.expanduser("~"),
-        filter='*.json')
+        None, 'Export hotbox', os.path.expanduser("~"),
+        '*.json')
     filename = filenames[0]
     if not filename:
         return
