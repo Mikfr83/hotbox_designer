@@ -17,15 +17,9 @@ def warning(title, message, parent=None):
 
 
 def import_hotbox():
-    try:
-        filenames = QtWidgets.QFileDialog.getOpenFileName(
-            None, caption='Import hotbox', directory=os.path.expanduser("~"),
-            filter='*.json')
-    except AttributeError:
-        # 'dir' argument is for PySide6 module
-        filenames = QtWidgets.QFileDialog.getOpenFileName(
-            None, caption='Import hotbox', dir=os.path.expanduser("~"),
-            filter='*.json')
+    filenames = QtWidgets.QFileDialog.getOpenFileName(
+        None, 'Import hotbox', os.path.expanduser("~"),
+        filter='*.json')
     if not filenames[0]:
         return
     with open(filenames[0], 'r') as f:
@@ -34,7 +28,7 @@ def import_hotbox():
 
 def import_hotbox_link():
     filenames = QtWidgets.QFileDialog.getOpenFileName(
-        None, caption='Import hotbox', directory=os.path.expanduser("~"),
+        None, 'Import hotbox', os.path.expanduser("~"),
         filter='*.json')
     if filenames:
         return filenames[0]
